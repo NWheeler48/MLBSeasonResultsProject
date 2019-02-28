@@ -1,0 +1,2 @@
+E:\Projects\UWPInterviewAsignment\MLBSeasonResults\MLBSeasonResults.csproj;x86
+E:\Projects\UWPInterviewAsignment\MLBSeasonResultsTests\MLBSeasonResultsTests.csproj;x86

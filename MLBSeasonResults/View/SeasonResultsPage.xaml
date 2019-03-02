@@ -1,0 +1,61 @@
+﻿<Page
+    x:Class="MLBSeasonResults.View.SeasonResultsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MLBSeasonResults.View"
+    xmlns:vm="using:MLBSeasonResults.ViewModel"
+    xmlns:data="using:MLBSeasonResults.Model.Utility"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <CollectionViewSource x:Name="ALViewSource" Source="{Binding ALSeasonResults, Mode=OneWay}" IsSourceGrouped="True"/>
+            <CollectionViewSource x:Name="NLViewSource" Source="{Binding NLSeasonResults, Mode=OneWay}" IsSourceGrouped="True"/>
+
+            <DataTemplate x:Key="TeamSeasonResults" x:DataType="data:TeamSeasonResults">
+                <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" BorderThickness="1" BorderBrush="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                        <TextBlock  x:Name="TeamName" Text="{x:Bind team}"/>
+                    </Border>
+                    <Border Grid.Column="1" BorderThickness="1" BorderBrush="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                        <TextBlock Grid.Column="1" x:Name="Wins" Text="{x:Bind wins}"/>
+                    </Border>
+                    <Border Grid.Column="2" BorderThickness="1" BorderBrush="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                        <TextBlock Grid.Column="2" x:Name="Losses" Text="{x:Bind losses}"/>
+                    </Border>
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+
+    <Grid x:Name="LeagueGrid" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <ScrollViewer>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="American League" Grid.Row="0"/>
+                <ItemsControl Grid.Row="1" ItemsSource="{Binding Source={StaticResource ALViewSource}}"
+                          ItemTemplate="{StaticResource TeamSeasonResults}"/>
+                <TextBlock Text="National League" Grid.Row="2"/>
+                <ItemsControl Grid.Row="3" ItemsSource="{Binding Source={StaticResource NLViewSource}}"
+                          ItemTemplate="{StaticResource TeamSeasonResults}"/>
+            </Grid>
+        </ScrollViewer>
+        
+    </Grid>
+</Page>
+
+    

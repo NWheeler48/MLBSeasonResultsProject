@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>E:\Projects\UWPInterviewAsignment\MLBSeasonResults\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>8D2846E2308F833C27DD3C28C0F994B79B051DD54D9A537139F5B5D3860CE94F</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>0C6494F849F5E8BA61AAA83D7ECB11374A251142EC7CB37B4B84DE16FBA53C68</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>c6740a58-18bb-40c6-8098-d33e394f6b3e_1.0.0.0_x86__jj7rxbs9cmdc2</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>c6740a58-18bb-40c6-8098-d33e394f6b3e_jj7rxbs9cmdc2!App</RegisteredUserModeAppID>
     <RegisteredPackageID>c6740a58-18bb-40c6-8098-d33e394f6b3e</RegisteredPackageID>
@@ -30,13 +30,17 @@
     <AppXManifest Include="E:\Projects\UWPInterviewAsignment\MLBSeasonResults\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-02-27T23:37:32.676</Modified>
+      <Modified>2019-03-02T23:05:54.747</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="E:\Projects\UWPInterviewAsignment\MLBSeasonResults\bin\x86\Debug\MLBSeasonResults.exe">
       <PackagePath>entrypoint\MLBSeasonResults.exe</PackagePath>
-      <Modified>2019-02-27T23:37:30.177</Modified>
+      <Modified>2019-03-02T23:05:53.788</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nwheeler\.nuget\packages\newtonsoft.json\12.0.1\lib\netstandard2.0\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+      <Modified>2018-11-27T23:07:34.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.3\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -86,15 +90,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Projects\UWPInterviewAsignment\MLBSeasonResults\bin\x86\Debug\MLBSeasonResults.xr.xml">
       <PackagePath>MLBSeasonResults.xr.xml</PackagePath>
-      <Modified>2019-02-27T23:37:29.960</Modified>
+      <Modified>2019-03-02T23:05:53.573</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Projects\UWPInterviewAsignment\MLBSeasonResults\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2019-02-27T23:37:29.990</Modified>
+      <Modified>2019-03-02T23:05:53.595</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Projects\UWPInterviewAsignment\MLBSeasonResults\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2019-02-27T23:37:29.990</Modified>
+      <Modified>2019-03-02T23:05:53.595</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Projects\UWPInterviewAsignment\MLBSeasonResults\bin\x86\Debug\View\SeasonResultsPage.xbf">
+      <PackagePath>View\SeasonResultsPage.xbf</PackagePath>
+      <Modified>2019-03-02T23:05:53.595</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17763.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -102,11 +110,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Projects\UWPInterviewAsignment\MLBSeasonResults\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2019-02-27T23:37:30.552</Modified>
+      <Modified>2019-03-02T23:05:54.071</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Projects\UWPInterviewAsignment\MLBSeasonResults\bin\x86\Debug\Core\MLBSeasonResults.exe">
       <PackagePath>MLBSeasonResults.exe</PackagePath>
-      <Modified>2019-02-27T23:37:32.663</Modified>
+      <Modified>2019-03-02T23:05:54.734</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MLBSeasonResults.Model;
+using MLBSeasonResults.View;
+using MLBSeasonResults.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -37,7 +40,7 @@ namespace MLBSeasonResults
         /// will be used such as when the application is launched to open a specific file.
         /// </summary>
         /// <param name="e">Details about the launch request and process.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
 
@@ -70,6 +73,18 @@ namespace MLBSeasonResults
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();
+            }
+
+            SeasonResultsDataModel model = new SeasonResultsDataModel();
+            if (await model.Initialize())
+            {
+                SeasonResultsViewModel viewModel = new SeasonResultsViewModel(model);
+                //viewModel.InitializeViewModel();
+                rootFrame.Navigate(typeof(SeasonResultsPage), viewModel);
+            }
+            else
+            {
+                // TODO display the error screen.
             }
         }
 

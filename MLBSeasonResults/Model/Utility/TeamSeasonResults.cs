@@ -7,78 +7,23 @@ using System.Threading.Tasks;
 
 namespace MLBSeasonResults.Model.Utility
 {
-    public class TeamSeasonResults : INotifyPropertyChanged
+    /// <summary>
+    /// A data class that holds the values from the endpoint.
+    /// </summary>
+    public class TeamSeasonResults
     {
-        #region Fields
-        #endregion
-
         #region Properties
-        private string _teamName;
-        public string TeamName
-        {
-            get
-            {
-                return _teamName;
-            }
-            set
-            {
-                if (value != null)
-                {
-                    _teamName = value;
-                    OnPropertyChanged("TeamName");
-                }
-            }
-        }
-
-        private string _wins;
-        public string Wins
-        {
-            get { return _wins; }
-            set
-            {
-                if (value != null)
-                {
-                    _wins = value;
-                    OnPropertyChanged("Wins");
-                }
-            }
-        }
-
-        private string _losses;
-        public string Losses
-        {
-            get { return _losses; }
-            set
-            {
-                if (value != null)
-                {
-                    _losses = value;
-                    OnPropertyChanged("Losses");
-                }
-            }
-        }
-            
+        public string team { get; set; }
+        public string wins { get; set; }
+        public string losses { get; set; }
+        public string league { get; set; }
+        public string division { get; set; }
         #endregion
 
         #region Constructors
-        #endregion
-
-        #region Public Methods
-        #endregion
-
-        #region Private Methods
-        #endregion
-
-        #region INotifyPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void OnPropertyChanged(string name)
+        public TeamSeasonResults()
         {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
-            }
+            // For now do nothing.
         }
         #endregion
     }

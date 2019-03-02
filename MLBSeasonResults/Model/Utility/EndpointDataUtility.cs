@@ -22,7 +22,7 @@ namespace MLBSeasonResults.Model.Utility
         /// </summary>
         /// <param name="address">The full address of the endpoint which contains the data</param>
         /// <returns></returns>
-        public static async Task<IBuffer> GetDataBuffer(string address)
+        public static async Task<string> GetDataBuffer(string address)
         {
 
             var uri = new System.Uri(address);
@@ -38,28 +38,15 @@ namespace MLBSeasonResults.Model.Utility
                     if (response.StatusCode == HttpStatusCode.Ok)
                     {
                         // If the call completed sucessfully return the buffer.
-                        return await response.Content.ReadAsBufferAsync();
+                        return await response.Content.ReadAsStringAsync();
                     }
-                    else
-                    {
-                        // If the http request failed throw an exception that will need to be caught be the caller.
-                        throw new Exception(response.StatusCode.ToString());
-                    }
-                    
                 }
-                catch (COMException e)
+                catch (Exception e)
                 {
-                    // TODO: How to handle COMException.
-                    throw e;
+                    return "";
                 }
-                catch (ArgumentNullException)
-                {
-                    throw new ArgumentNullException("A null enpoint was inappropriately provided.");
-                }
-                catch (OutOfMemoryException)
-                {
-                    throw new OutOfMemoryException("The host system has run out of memory and cannot complete the operation.");
-                }
+
+                return "";
             }
         }
     }

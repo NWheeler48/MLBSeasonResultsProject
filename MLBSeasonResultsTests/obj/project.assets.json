@@ -263,13 +263,13 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Newtonsoft.Json/9.0.1": {
+      "Newtonsoft.Json/12.0.1": {
         "type": "package",
         "compile": {
-          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.win10-arm.Microsoft.Net.Native.Compiler/2.2.1": {
@@ -552,7 +552,8 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.16299",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.3"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.3",
+          "Newtonsoft.Json": "12.0.1"
         },
         "compile": {
           "bin/placeholder/MLBSeasonResults.dll": {}
@@ -825,13 +826,13 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Newtonsoft.Json/9.0.1": {
+      "Newtonsoft.Json/12.0.1": {
         "type": "package",
         "compile": {
-          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.any.System.Globalization/4.0.11": {
@@ -1373,7 +1374,8 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.16299",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.3"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.3",
+          "Newtonsoft.Json": "12.0.1"
         },
         "compile": {
           "bin/placeholder/MLBSeasonResults.dll": {}
@@ -1646,13 +1648,13 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Newtonsoft.Json/9.0.1": {
+      "Newtonsoft.Json/12.0.1": {
         "type": "package",
         "compile": {
-          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.aot.System.Globalization/4.0.11": {
@@ -2237,7 +2239,8 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.16299",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.3"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.3",
+          "Newtonsoft.Json": "12.0.1"
         },
         "compile": {
           "bin/placeholder/MLBSeasonResults.dll": {}
@@ -2510,13 +2513,13 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Newtonsoft.Json/9.0.1": {
+      "Newtonsoft.Json/12.0.1": {
         "type": "package",
         "compile": {
-          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.aot.System.Globalization/4.0.11": {
@@ -3101,7 +3104,8 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.16299",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.3"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.3",
+          "Newtonsoft.Json": "12.0.1"
         },
         "compile": {
           "bin/placeholder/MLBSeasonResults.dll": {}
@@ -3374,13 +3378,13 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Newtonsoft.Json/9.0.1": {
+      "Newtonsoft.Json/12.0.1": {
         "type": "package",
         "compile": {
-          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.any.System.Globalization/4.0.11": {
@@ -3922,7 +3926,8 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.16299",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.3"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.3",
+          "Newtonsoft.Json": "12.0.1"
         },
         "compile": {
           "bin/placeholder/MLBSeasonResults.dll": {}
@@ -4195,13 +4200,13 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Newtonsoft.Json/9.0.1": {
+      "Newtonsoft.Json/12.0.1": {
         "type": "package",
         "compile": {
-          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.aot.System.Globalization/4.0.11": {
@@ -4786,7 +4791,8 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.16299",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.3"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.3",
+          "Newtonsoft.Json": "12.0.1"
         },
         "compile": {
           "bin/placeholder/MLBSeasonResults.dll": {}
@@ -5059,13 +5065,13 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Newtonsoft.Json/9.0.1": {
+      "Newtonsoft.Json/12.0.1": {
         "type": "package",
         "compile": {
-          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.any.System.Globalization/4.0.11": {
@@ -5607,7 +5613,8 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.16299",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.3"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.3",
+          "Newtonsoft.Json": "12.0.1"
         },
         "compile": {
           "bin/placeholder/MLBSeasonResults.dll": {}
@@ -5880,13 +5887,13 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Newtonsoft.Json/9.0.1": {
+      "Newtonsoft.Json/12.0.1": {
         "type": "package",
         "compile": {
-          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.aot.System.Globalization/4.0.11": {
@@ -6471,7 +6478,8 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.16299",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.3"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.3",
+          "Newtonsoft.Json": "12.0.1"
         },
         "compile": {
           "bin/placeholder/MLBSeasonResults.dll": {}
@@ -7176,30 +7184,43 @@
         "netstandard.library.nuspec"
       ]
     },
-    "Newtonsoft.Json/9.0.1": {
-      "sha512": "U82mHQSKaIk+lpSVCbWYKNavmNH1i5xrExDEquU1i6I5pV6UMOqRnJRSlKO3cMPfcpp0RgDY+8jUXHdQ4IfXvw==",
+    "Newtonsoft.Json/12.0.1": {
+      "sha512": "pBR3wCgYWZGiaZDYP+HHYnalVnPJlpP1q55qvVb+adrDHmFMDc1NAKio61xTwftK3Pw5h7TZJPJEEVMd6ty8rg==",
       "type": "package",
-      "path": "newtonsoft.json/9.0.1",
-      "hasTools": true,
+      "path": "newtonsoft.json/12.0.1",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
         "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.pdb",
         "lib/net20/Newtonsoft.Json.xml",
         "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.pdb",
         "lib/net35/Newtonsoft.Json.xml",
         "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.pdb",
         "lib/net40/Newtonsoft.Json.xml",
         "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.pdb",
         "lib/net45/Newtonsoft.Json.xml",
         "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.pdb",
         "lib/netstandard1.0/Newtonsoft.Json.xml",
-        "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.dll",
-        "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml",
-        "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll",
-        "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.xml",
-        "newtonsoft.json.9.0.1.nupkg.sha512",
-        "newtonsoft.json.nuspec",
-        "tools/install.ps1"
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.pdb",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.pdb",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.pdb",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.pdb",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.12.0.1.nupkg.sha512",
+        "newtonsoft.json.nuspec"
       ]
     },
     "runtime.any.System.Globalization/4.0.11": {
@@ -12318,7 +12339,8 @@
       "MSTest.TestAdapter >= 1.3.2",
       "MSTest.TestFramework >= 1.3.2",
       "Microsoft.NET.Test.Sdk >= 15.9.0",
-      "Microsoft.NETCore.UniversalWindowsPlatform >= 6.2.3"
+      "Microsoft.NETCore.UniversalWindowsPlatform >= 6.2.3",
+      "Newtonsoft.Json >= 12.0.1"
     ]
   },
   "packageFolders": {
@@ -12377,6 +12399,10 @@
           "Microsoft.NETCore.UniversalWindowsPlatform": {
             "target": "Package",
             "version": "[6.2.3, )"
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[12.0.1, )"
           }
         },
         "imports": [

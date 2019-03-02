@@ -43,3 +43,10 @@ E:\Projects\UWPInterviewAsignment\MLBSeasonResults\obj\x86\Debug\qualifiers.txt.
 E:\Projects\UWPInterviewAsignment\MLBSeasonResults\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 E:\Projects\UWPInterviewAsignment\MLBSeasonResults\obj\x86\Debug\ProjectArchitectures.txt
 E:\Projects\UWPInterviewAsignment\MLBSeasonResults\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_636758732200000000.json
+E:\Projects\UWPInterviewAsignment\MLBSeasonResults\bin\x86\Debug\Newtonsoft.Json.dll
+E:\Projects\UWPInterviewAsignment\MLBSeasonResults\bin\x86\Debug\Newtonsoft.Json.pdb
+E:\Projects\UWPInterviewAsignment\MLBSeasonResults\bin\x86\Debug\View\SeasonResultsPage.xbf
+E:\Projects\UWPInterviewAsignment\MLBSeasonResults\obj\x86\Debug\View\SeasonResultsPage.g.i.cs
+E:\Projects\UWPInterviewAsignment\MLBSeasonResults\obj\x86\Debug\View\SeasonResultsPage.g.cs
+E:\Projects\UWPInterviewAsignment\MLBSeasonResults\obj\x86\Debug\View\SeasonResultsPage.xaml
+E:\Projects\UWPInterviewAsignment\MLBSeasonResults\obj\x86\Debug\View\SeasonResultsPage.xbf

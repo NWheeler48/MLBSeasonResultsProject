@@ -8,5 +8,6 @@ namespace MLBSeasonResults.Model.Utility
 {
     class JSONParser
     {
+
     }
 }

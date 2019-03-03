@@ -1,5 +1,5 @@
-# UWPInterviewAsignment
-An interview assignment for mlb.com 
+# MLBSeasonResultsProject
+pulls from a static address and displays the season results for the MLB teams.
 
 This application uses the nuget package Json.NET from Newtonsoft for json deserialization. It should be automatically retrieved via nuget when the application is built.
 

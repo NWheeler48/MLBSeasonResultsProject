@@ -132,6 +132,9 @@
     <Compile Include="View\SeasonResultsPage.xaml.cs">
       <DependentUpon>SeasonResultsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\SomethingWentWrong.xaml.cs">
+      <DependentUpon>SomethingWentWrong.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -159,6 +162,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\SeasonResultsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SomethingWentWrong.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

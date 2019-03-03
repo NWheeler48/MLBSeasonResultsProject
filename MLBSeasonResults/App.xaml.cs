@@ -83,7 +83,7 @@ namespace MLBSeasonResults
             }
             else
             {
-                // TODO display the error screen.
+                rootFrame.Navigate(typeof(SomethingWentWrong));
             }
         }
 

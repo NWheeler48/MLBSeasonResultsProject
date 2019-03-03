@@ -1,0 +1,14 @@
+﻿<Page
+    x:Class="MLBSeasonResults.View.SomethingWentWrong"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MLBSeasonResults.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock Text="Something Went Wrong, Please Contact The Developer Of This Application" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontSize="32"/>
+    </Grid>
+</Page>

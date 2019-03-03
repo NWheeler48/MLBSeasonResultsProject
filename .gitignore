@@ -6,7 +6,8 @@
 *.userosscache
 *.sln.docstates
 
-
+# Build and visual studios directories that do not need to be included
 MLBSeasonResults/bin/*
 MLBSeasonResults/.vs/*
+MLBSeasonResults/ob/*
 

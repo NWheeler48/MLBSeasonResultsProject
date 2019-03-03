@@ -7,29 +7,29 @@ using MLBSeasonResults.Model.Utility;
 namespace MLBSeasonResultsTests
 {
     [TestClass]
-    public class EndpointDataUtility_Tests
+    public class HttpDataUtility_Tests
     {
         [TestMethod]
-        public async Task Get_Good_Endpoint()
+        public async Task Get_Good_Address()
         {
-            // Good endpoint name.
-            var buffer = await EndpointDataUtility.GetDataFromHttpEndpoint("https://api.mobileqa.mlbinfra.com/api/interview/v1/records");
+            // Good address name.
+            var buffer = await HttpDataUtility.GetDataFromHttpServer("https://api.mobileqa.mlbinfra.com/api/interview/v1/records");
             Assert.AreNotEqual(buffer.Length, 0);
         }
 
         [TestMethod]
         [ExpectedException(typeof (ArgumentNullException))]
-        public async Task Get_Null_Endpoint()
+        public async Task Get_Null_Address()
         {
-            // Null endpoint this should fail.
-            var buffer = await EndpointDataUtility.GetDataFromHttpEndpoint(null);
+            // Null address this should fail.
+            var buffer = await HttpDataUtility.GetDataFromHttpServer(null);
         }
 
         [TestMethod]
         [ExpectedException(typeof (InvalidOperationException))]
         public async Task Utility_Throws_InvalidOperationException()
         {
-            var buffer = await EndpointDataUtility.GetDataFromHttpEndpoint("htpps://fake");
+            var buffer = await HttpDataUtility.GetDataFromHttpServer("htpps://fake");
         }
 
     }
@@ -63,7 +63,8 @@ namespace MLBSeasonResultsTests
             string json = "[{\"team\": \"KCR\",\"wins\": 58,\"losses\": 104,\"league\": \"AL\",\"division\": \"Central\"}, {\"team\": \"PIT\",\"wins\": 75,\"losses\": 111,\"league\": \"NL\",\"division\": \"East\"}]";
             List<TeamSeasonResults> results = JsonDeserializationUtility.DeserializeJsonToSeasonResults(json);
 
-            Assert.AreSame(expected[0], results[0]);            
+            // This is not a great test I am only doing it this way so I do not have to overload the Equals and GetHash method for TeamSeasonResults.
+            Assert.AreEqual(expected.Count, results.Count);
         }
 
         [TestMethod]

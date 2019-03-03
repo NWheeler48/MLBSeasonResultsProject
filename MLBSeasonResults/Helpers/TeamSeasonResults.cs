@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace MLBSeasonResults.Model.Utility
 {
     /// <summary>
-    /// A data class that holds the values from the endpoint.
+    /// A data class that holds the values from the json or whatever data source is used.
     /// </summary>
     public class TeamSeasonResults
     {
@@ -23,7 +17,12 @@ namespace MLBSeasonResults.Model.Utility
         #region Constructors
         public TeamSeasonResults()
         {
-            // For now do nothing.
+            // Give everything an initial value so non are null.
+            team = "";
+            wins = "";
+            losses = "";
+            league = "";
+            division = "";
         }
         #endregion
     }

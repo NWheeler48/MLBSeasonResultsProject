@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
-using Windows.Storage.Streams;
 using Windows.Web.Http;
 
 
@@ -12,19 +7,21 @@ using Windows.Web.Http;
 namespace MLBSeasonResults.Model.Utility
 {
     /// <summary>
-    /// Class: EndpointDataUtility
-    /// Purpose: Retrieve data from a specified endpoint and make it avaliable to other classes.
+    /// Class: HttpDataUtility
+    /// Purpose: Retrieve data from a specified address and make it avaliable to other classes.
     /// </summary>
-    public static class EndpointDataUtility
+    public static class HttpDataUtility
     {
         /// <summary>
-        /// Retrieve data from the specified endpoint.
+        /// Retrieve data from the specified address.
         /// </summary>
-        /// <param name="address">The full address of the endpoint which contains the data</param>
-        /// <returns></returns>
-        public static async Task<string> GetDataFromHttpEndpoint(string address)
+        /// <param name="address">The full address of the server which contains the data</param>
+        /// <returns>
+        /// Task<string> A string containing the data from the provided address.
+        /// </returns>
+        public static async Task<string> GetDataFromHttpServer(string address)
         {
-            // Attempt to get the data from the provided enpoint.
+            // Attempt to get the data from the provided address.
             using (var httpClient = new HttpClient())
             {
                 try
@@ -46,6 +43,8 @@ namespace MLBSeasonResults.Model.Utility
                 }
                 catch (Exception e)
                 {
+                    // Since this app has no real way to recover from a exception while getting the data from an server
+                    // it just throws an exception and lets the caller handle it.
                     throw e;
                 }
             }

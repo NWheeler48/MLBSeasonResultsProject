@@ -1,31 +1,21 @@
 ﻿using MLBSeasonResults.Model.Utility;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Windows.Storage.Streams;
-using System;
-using Newtonsoft.Json;
-using Windows.Web.Http;
-using Newtonsoft.Json.Serialization;
 
 namespace MLBSeasonResults.Model
 {
+    /// <summary>
+    /// Class: SeasonResultsDataModel
+    /// Purpose: To get the data from a static address.
+    /// </summary>
     public class SeasonResultsDataModel
     {
         #region Fields
-        // A list of team results that is deserialized from the json gathered from the endpoint.
+        // A list of team results that is deserialized from the json gathered from the server.
         private List<TeamSeasonResults> _teamsResults = null;
 
-        // For now keep the endpoint in the application. I may create a build variable for that later.
-        private const string _endpoint = "https://api.mobileqa.mlbinfra.com/api/interview/v1/records";
-        #endregion
-
-        #region Properties
-        // A get only flag to determine that this model has been initialized.
-        private bool _isInitialized = false;
-        public bool IsInitialized
-        {
-            get { return _isInitialized; }
-        }
+        // The address of the server containing the data.
+        private const string _address = "https://api.mobileqa.mlbinfra.com/api/interview/v1/records";
         #endregion
 
         #region Constructors
@@ -42,7 +32,7 @@ namespace MLBSeasonResults.Model
         }
 
         /// <summary>
-        /// Initializes the Data retrieved from the endpoint and stores it in a list.
+        /// Initializes the Data retrieved from the specified address and stores it in a list.
         /// </summary>
         /// <returns>
         /// True: If the initialization completed successfully.
@@ -52,13 +42,12 @@ namespace MLBSeasonResults.Model
         {
             try
             {
-                string data = await EndpointDataUtility.GetDataFromHttpEndpoint(_endpoint);
+                string data = await HttpDataUtility.GetDataFromHttpServer(_address);
                 if (data != null && data.Length > 0)
                 {
                     _teamsResults = JsonDeserializationUtility.DeserializeJsonToSeasonResults(data);
                     if (_teamsResults != null && _teamsResults.Count > 0)
                     {
-                        _isInitialized = true;
                         return true;
                     }
                 }
@@ -69,6 +58,7 @@ namespace MLBSeasonResults.Model
                 return false;
             }
 
+            // If there is no exception but the team results comes back null or empty return false.
             return false;
         }
         #endregion

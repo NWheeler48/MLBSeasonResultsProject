@@ -19,7 +19,7 @@ using Windows.UI.Xaml.Navigation;
 namespace MLBSeasonResults.View
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// A partial class that is used to intialize the view model and display the MLB season results.
     /// </summary>
     public sealed partial class SeasonResultsPage : Page
     {
@@ -33,6 +33,7 @@ namespace MLBSeasonResults.View
             this.InitializeComponent();
         }
 
+        // When this page is navigated to by a frame intialize the View Model if necessary.
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             ViewModel = e.Parameter as SeasonResultsViewModel;

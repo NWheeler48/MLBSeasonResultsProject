@@ -13,7 +13,8 @@ using Windows.UI.Xaml.Data;
 namespace MLBSeasonResults.ViewModel
 {
     /// <summary>
-    /// View Model class for the season results application. This class takes the raw data from the model and organizes it into American League, National League and into those leagues
+    /// Class: SeasonResultsViewModel
+    /// Purpose: View Model class for the season results application. This class takes the raw data from the model and organizes it into American League, National League and into those leagues
     /// respective divisions.
     /// </summary>
     public class SeasonResultsViewModel
@@ -61,6 +62,11 @@ namespace MLBSeasonResults.ViewModel
         #endregion
 
         #region Public Methods
+
+        /// <summary>
+        /// Intialize the view model for the application, this method will take the list of data from the model and 
+        /// seperated it into leagues then from there it will populate the two collections with the leagues division results.
+        /// </summary>
         public void InitializeViewModel()
         {
             var leagueResults = _model.GetTeamsSeasonResultsList();
@@ -105,9 +111,6 @@ namespace MLBSeasonResults.ViewModel
                 }
             }
         }
-        #endregion
-
-        #region Private Methods
         #endregion
     }
 }

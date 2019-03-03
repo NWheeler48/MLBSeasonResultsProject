@@ -52,19 +52,10 @@ namespace MLBSeasonResults.Model
         {
             try
             {
-                string data = await GetDataFromHttpEndpoint(_endpoint);
+                string data = await EndpointDataUtility.GetDataFromHttpEndpoint(_endpoint);
                 if (data != null && data.Length > 0)
                 {
-                    List<string> errors = new List<string>();
-                    _teamsResults = JsonConvert.DeserializeObject<List<TeamSeasonResults>>(@data,
-                    new JsonSerializerSettings
-                    {
-                        Error = delegate (object sender, ErrorEventArgs args)
-                        {
-                            errors.Add(args.ErrorContext.Error.Message);
-                            args.ErrorContext.Handled = true;
-                        }
-                    });
+                    _teamsResults = JsonDeserializationUtility.DeserializeJsonToSeasonResults(data);
                     if (_teamsResults != null && _teamsResults.Count > 0)
                     {
                         _isInitialized = true;
@@ -74,52 +65,11 @@ namespace MLBSeasonResults.Model
             }
             catch
             {
+                // Since there is no real way to handle not getting the data return false.
                 return false;
             }
 
             return false;
-        }
-        #endregion
-
-        #region Private Methods
-        /// <summary>
-        /// Retrieves the data from the given endpoint and returns it as a string.
-        /// </summary>
-        /// <param name="address">the http address of the given endpoint</param>
-        /// <returns>
-        /// string: A string containing the data that was retrieved from the given endpoint.
-        /// </returns>
-        private async Task<string> GetDataFromHttpEndpoint(string address)
-        {
-            if (address != null)
-            {
-                using (var httpClient = new HttpClient())
-                {
-                    try
-                    {
-                        var uri = new System.Uri(_endpoint);
-
-                        var response = await httpClient.GetAsync(uri);
-
-                        if (response.StatusCode == HttpStatusCode.Ok)
-                        {
-                            return await response.Content.ReadAsStringAsync();
-                        }
-                        else
-                        {
-                            throw new Exception(string.Format("Failed to retrieve data from endpoint with http status code: {0}", response.StatusCode.ToString()));
-                        }
-                    }
-                    catch (Exception e)
-                    {
-                        throw e;
-                    }
-                }
-            }
-            else
-            {
-                throw new ArgumentNullException("The address for the endpoint was unexpectedly null");
-            }
         }
         #endregion
     }

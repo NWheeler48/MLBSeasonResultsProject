@@ -79,7 +79,6 @@ namespace MLBSeasonResults
             if (await model.Initialize())
             {
                 SeasonResultsViewModel viewModel = new SeasonResultsViewModel(model);
-                //viewModel.InitializeViewModel();
                 rootFrame.Navigate(typeof(SeasonResultsPage), viewModel);
             }
             else

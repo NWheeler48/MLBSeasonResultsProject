@@ -125,7 +125,7 @@
     </Compile>
     <Compile Include="Model\SeasonResultsDataModel.cs" />
     <Compile Include="Model\Utility\EndpointDataUtility.cs" />
-    <Compile Include="Model\Utility\JSONParser.cs" />
+    <Compile Include="Model\Utility\JsonDeserializationUtility.cs" />
     <Compile Include="Model\Utility\TeamSeasonResults.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\SeasonResultsViewModel.cs" />

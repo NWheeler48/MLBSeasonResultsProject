@@ -58,3 +58,4 @@ E:\Projects\UWPInterviewAsignment\MLBSeasonResultsTests\obj\x86\Debug\resources.
 E:\Projects\UWPInterviewAsignment\MLBSeasonResultsTests\obj\x86\Debug\resources.en.resfiles.intermediate
 E:\Projects\UWPInterviewAsignment\MLBSeasonResultsTests\obj\x86\Debug\ProjectArchitectures.txt
 E:\Projects\UWPInterviewAsignment\MLBSeasonResultsTests\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_636758732200000000.json
+E:\Projects\UWPInterviewAsignment\MLBSeasonResultsTests\bin\x86\Debug\Newtonsoft.Json.pdb

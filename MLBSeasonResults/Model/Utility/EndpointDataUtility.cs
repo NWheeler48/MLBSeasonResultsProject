@@ -22,16 +22,15 @@ namespace MLBSeasonResults.Model.Utility
         /// </summary>
         /// <param name="address">The full address of the endpoint which contains the data</param>
         /// <returns></returns>
-        public static async Task<string> GetDataBuffer(string address)
+        public static async Task<string> GetDataFromHttpEndpoint(string address)
         {
-
-            var uri = new System.Uri(address);
-
             // Attempt to get the data from the provided enpoint.
             using (var httpClient = new HttpClient())
             {
                 try
                 {
+                    var uri = new System.Uri(address);
+
                     var response = await httpClient.GetAsync(uri);
 
                     // Check that the response was correctly carried out.
@@ -40,13 +39,15 @@ namespace MLBSeasonResults.Model.Utility
                         // If the call completed sucessfully return the buffer.
                         return await response.Content.ReadAsStringAsync();
                     }
+                    else
+                    {
+                        throw new Exception(string.Format("Http request failed with status code: {0}", response.StatusCode.ToString()));
+                    }
                 }
                 catch (Exception e)
                 {
-                    return "";
+                    throw e;
                 }
-
-                return "";
             }
         }
     }

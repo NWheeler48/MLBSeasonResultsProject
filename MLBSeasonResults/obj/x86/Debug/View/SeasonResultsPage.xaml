@@ -16,32 +16,53 @@
             <CollectionViewSource x:ConnectionId='3' x:Name="NLViewSource" Source="{Binding NLSeasonResults, Mode=OneWay}" IsSourceGrouped="True"/>
 
             <DataTemplate x:Key="TeamSeasonResults"                                    >
-                <Grid x:ConnectionId='4' VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <Grid x:ConnectionId='6' VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,2,0,2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Border Grid.Column="0" BorderThickness="1" BorderBrush="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                        <TextBlock x:ConnectionId='7'  x:Name="TeamName"                     />
-                    </Border>
-                    <Border Grid.Column="1" BorderThickness="1" BorderBrush="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                        <TextBlock x:ConnectionId='6' Grid.Column="1" x:Name="Wins"                     />
-                    </Border>
-                    <Border Grid.Column="2" BorderThickness="1" BorderBrush="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                        <TextBlock x:ConnectionId='5' Grid.Column="2" x:Name="Losses"                       />
-                    </Border>
+                    <TextBlock x:ConnectionId='7' Grid.Column="0" x:Name="TeamName"                      FontSize="12"/>
+                    <TextBlock x:ConnectionId='8' Grid.Column="1" x:Name="Wins"                      FontSize="12"/>
+                    <TextBlock x:ConnectionId='9' Grid.Column="2" x:Name="Losses"                        FontSize="12"/>
                 </Grid>
             </DataTemplate>
 
-            <Style x:Key="ListViewItemStretchStyle" TargetType="ListViewItem">
-                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Style TargetType="GroupItem">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="GroupItem">
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <ContentControl x:Name="HeaderContent" ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                                HorizontalContentAlignment="Stretch"
+                                                                ContentTransitions="{TemplateBinding ContentTransitions}" ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" 
+                                                                Content="{TemplateBinding Content}" IsTabStop="False" Margin="{TemplateBinding Padding}" TabIndex="0"/>
+                                    <ItemsControl x:Name="ItemsControl" IsTabStop="False" ItemsSource="{Binding GroupItems}" Grid.Row="1" TabIndex="1" TabNavigation="Once">
+                                        <ItemsControl.ItemContainerTransitions>
+                                            <TransitionCollection>
+                                                <AddDeleteThemeTransition/>
+                                                <ContentThemeTransition/>
+                                                <ReorderThemeTransition/>
+                                                <EntranceThemeTransition IsStaggeringEnabled="False"/>
+                                            </TransitionCollection>
+                                        </ItemsControl.ItemContainerTransitions>
+                                    </ItemsControl>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
             </Style>
         </ResourceDictionary>
     </UserControl.Resources>
 
 
-    <Grid x:ConnectionId='8' x:Name="LeagueGrid" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+    <Grid x:ConnectionId='10' x:Name="LeagueGrid" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <ScrollViewer>
             <Grid>
                 <Grid.RowDefinitions>
@@ -50,16 +71,53 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-
-                <TextBlock Text="Test1" Grid.Row="0"/>
+                <TextBlock Text="American League" Grid.Row="0" FontSize="24" FontWeight="Bold" Margin="0,12,0,0"/>
                 <ItemsControl Grid.Row="1" ItemsSource="{Binding Source={StaticResource ALViewSource}}"
-                          ItemTemplate="{StaticResource TeamSeasonResults}"/>
-                <TextBlock Text="Test2" Grid.Row="2"/>
+                              ItemTemplate="{StaticResource TeamSeasonResults}">
+                    <ItemsControl.GroupStyle>
+                        <GroupStyle>
+                            <GroupStyle.HeaderTemplate>
+                                <DataTemplate>
+                                    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,8,0,2">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" x:Name="TeamName" Text="{Binding Division}" FontWeight="Bold" FontSize="16"/>
+                                        <TextBlock Grid.Column="1" x:Name="Wins" Text="W" FontWeight="Bold" FontSize="16"/>
+                                        <TextBlock Grid.Column="2" x:Name="Losses" Text="L" FontWeight="Bold" FontSize="16"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </GroupStyle.HeaderTemplate>
+                        </GroupStyle>
+                    </ItemsControl.GroupStyle>
+                </ItemsControl>
+                <TextBlock Text="National League" Grid.Row="2" FontSize="24" FontWeight="Bold" Margin="0,12,0,0"/>
                 <ItemsControl Grid.Row="3" ItemsSource="{Binding Source={StaticResource NLViewSource}}"
-                          ItemTemplate="{StaticResource TeamSeasonResults}"/>
+                          ItemTemplate="{StaticResource TeamSeasonResults}">
+                    <ItemsControl.GroupStyle>
+                        <GroupStyle>
+                            <GroupStyle.HeaderTemplate>
+                                <DataTemplate>
+                                    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,8,0,2">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" x:Name="TeamName" Text="{Binding Division}" FontWeight="Bold" FontSize="16"/>
+                                        <TextBlock Grid.Column="1" x:Name="Wins" FontWeight="Bold" Text="W" FontSize="16"/>
+                                        <TextBlock Grid.Column="2" x:Name="Losses" FontWeight="Bold" Text="L" FontSize="16"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </GroupStyle.HeaderTemplate>
+                        </GroupStyle>
+                    </ItemsControl.GroupStyle>
+                </ItemsControl>
             </Grid>
         </ScrollViewer>
-        
+
     </Grid>
 </Page>
 

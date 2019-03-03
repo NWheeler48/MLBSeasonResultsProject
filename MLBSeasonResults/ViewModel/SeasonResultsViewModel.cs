@@ -12,7 +12,11 @@ using Windows.UI.Xaml.Data;
 
 namespace MLBSeasonResults.ViewModel
 {
-    public class SeasonResultsViewModel: INotifyPropertyChanged
+    /// <summary>
+    /// View Model class for the season results application. This class takes the raw data from the model and organizes it into American League, National League and into those leagues
+    /// respective divisions.
+    /// </summary>
+    public class SeasonResultsViewModel
     {
         #region Fields
         private SeasonResultsDataModel _model;
@@ -21,8 +25,8 @@ namespace MLBSeasonResults.ViewModel
         #region Properties
 
         // Observable collection of the American League teams grouped by there division (East, Centeral, West)
-        private ObservableCollection<List<TeamSeasonResults>> _alSeasonResults = new ObservableCollection<List<TeamSeasonResults>>();
-        public ObservableCollection<List<TeamSeasonResults>> ALSeasonResults
+        private ObservableCollection<GroupedByDivisionList> _alSeasonResults = new ObservableCollection<GroupedByDivisionList>();
+        public ObservableCollection<GroupedByDivisionList> ALSeasonResults
         {
             get { return _alSeasonResults; }
             set
@@ -30,14 +34,13 @@ namespace MLBSeasonResults.ViewModel
                 if (value != null)
                 {
                     _alSeasonResults = value;
-                    OnPropertyChanged("ALSeasonResults");
                 }
             }
         }
 
         // Observable collection of the National League teams grouped by there division (East, Centeral, West)
-        private ObservableCollection<List<TeamSeasonResults>> _nlSeasonResults = new ObservableCollection<List<TeamSeasonResults>>();
-        public ObservableCollection<List<TeamSeasonResults>> NLSeasonResults
+        private ObservableCollection<GroupedByDivisionList> _nlSeasonResults = new ObservableCollection<GroupedByDivisionList>();
+        public ObservableCollection<GroupedByDivisionList> NLSeasonResults
         {
             get { return _nlSeasonResults; }
             set
@@ -45,7 +48,6 @@ namespace MLBSeasonResults.ViewModel
                 if (value != null)
                 {
                     _nlSeasonResults = value;
-                    OnPropertyChanged("NLSeasonResults");
                 }
             }
         }
@@ -66,54 +68,46 @@ namespace MLBSeasonResults.ViewModel
             // The first step is to group the results by the leauge AL and NL
             var leagueGrouping = (from result in leagueResults group result by result.league);
 
-            // Loop through the resulting collection, if there is an erronous leauge then it will be ignored.
+            // Loop through the resulting collection, if there is an erronous league then it will be ignored.
             foreach (var league in leagueGrouping)
             {
+                // Add the list of teams in each division to there respective collections.
                 if (league.Key == "AL")
                 {
-                    var alDivisionGrouping = (from result in league group result by result.division into g orderby g.Key select new { Items = g});
+                    var alDivisionGrouping = (from result in league group result by result.division into g orderby g.Key select new { Items = g, Division = g.Key});
 
                     foreach (var division in alDivisionGrouping)
                     {
-                        ALSeasonResults.Add(new List<TeamSeasonResults>(division.Items));
+                        GroupedByDivisionList list = new GroupedByDivisionList();
+                        list.Division = division.Division;
+                        foreach(var item in division.Items)
+                        {
+                            list.Add(item);
+                        }
+                        list.Division = division.Division;
+                        ALSeasonResults.Add(list);
                     }
                 }
                 if (league.Key == "NL")
                 {
-                    var nlDivisionGrouping = (from result in league group result by result.division into g orderby g.Key select new { Items = g });
+                    var nlDivisionGrouping = (from result in league group result by result.division into g orderby g.Key select new { Items = g, Division = g.Key});
 
                     foreach (var division in nlDivisionGrouping)
                     {
-                        NLSeasonResults.Add(new List<TeamSeasonResults>(division.Items));
+                        GroupedByDivisionList list = new GroupedByDivisionList();
+                        list.Division = division.Division;
+                        foreach (var item in division.Items)
+                        {
+                            list.Add(item);
+                        }
+                        NLSeasonResults.Add(list);
                     }
                 }
             }
-
-
-
-            //var group = (from result in allResults group result by result.division into g orderby g.Key select new { Name = g.Key, Items = g });
-            //foreach (var division in group)
-            //{
-            //    GroupedList list = new GroupedList();
-            //    list.Key = division.Name;
-
-            //    foreach(var item in division.Items)
-            //    {
-            //        list.Add(item);
-            //    }
-
-            //    ALSeasonResults.Add(list);
-            //}
         }
         #endregion
 
-        #region INotifyPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged(string name)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
+        #region Private Methods
         #endregion
-
     }
 }

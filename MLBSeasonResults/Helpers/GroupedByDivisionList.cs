@@ -4,6 +4,6 @@ namespace MLBSeasonResults.Helpers
 {
     public class GroupedByDivisionList : List<object>
     {
-        public object Key { get; set; }
+        public object Division { get; set; }
     }
 }

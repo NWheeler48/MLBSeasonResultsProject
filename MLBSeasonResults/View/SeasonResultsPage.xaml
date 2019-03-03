@@ -16,23 +16,39 @@
             <CollectionViewSource x:Name="NLViewSource" Source="{Binding NLSeasonResults, Mode=OneWay}" IsSourceGrouped="True"/>
 
             <DataTemplate x:Key="TeamSeasonResults" x:DataType="data:TeamSeasonResults">
-                <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,2,0,2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Border Grid.Column="0" BorderThickness="1" BorderBrush="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                        <TextBlock  x:Name="TeamName" Text="{x:Bind team}"/>
-                    </Border>
-                    <Border Grid.Column="1" BorderThickness="1" BorderBrush="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                        <TextBlock Grid.Column="1" x:Name="Wins" Text="{x:Bind wins}"/>
-                    </Border>
-                    <Border Grid.Column="2" BorderThickness="1" BorderBrush="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                        <TextBlock Grid.Column="2" x:Name="Losses" Text="{x:Bind losses}"/>
-                    </Border>
+                    <TextBlock Grid.Column="0" x:Name="TeamName" Text="{x:Bind team}" FontSize="12" HorizontalAlignment="Left"/>
+                    <TextBlock Grid.Column="1" x:Name="Wins" Text="{x:Bind wins}" FontSize="12" HorizontalAlignment="Left"/>
+                    <TextBlock Grid.Column="2" x:Name="Losses" Text="{x:Bind losses}" FontSize="12" HorizontalAlignment="Left"/>
                 </Grid>
             </DataTemplate>
+
+            <Style TargetType="GroupItem">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="GroupItem">
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <ContentControl x:Name="HeaderContent" ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                                HorizontalContentAlignment="Stretch"
+                                                                ContentTransitions="{TemplateBinding ContentTransitions}" ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" 
+                                                                Content="{TemplateBinding Content}" IsTabStop="False" Margin="{TemplateBinding Padding}" TabIndex="0"/>
+                                    <ItemsControl x:Name="ItemsControl" IsTabStop="False" ItemsSource="{Binding GroupItems}" Grid.Row="1" TabIndex="1" TabNavigation="Once"/>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
         </ResourceDictionary>
     </UserControl.Resources>
 
@@ -46,15 +62,53 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="American League" Grid.Row="0"/>
+                <TextBlock Text="American League" Grid.Row="0" FontSize="24" FontWeight="Bold" Margin="0,12,0,0"/>
                 <ItemsControl Grid.Row="1" ItemsSource="{Binding Source={StaticResource ALViewSource}}"
-                          ItemTemplate="{StaticResource TeamSeasonResults}"/>
-                <TextBlock Text="National League" Grid.Row="2"/>
+                              ItemTemplate="{StaticResource TeamSeasonResults}">
+                    <ItemsControl.GroupStyle>
+                        <GroupStyle>
+                            <GroupStyle.HeaderTemplate>
+                                <DataTemplate>
+                                    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,8,0,2">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" x:Name="TeamName" Text="{Binding Division}" FontWeight="Bold" FontSize="16"/>
+                                        <TextBlock Grid.Column="1" x:Name="Wins" Text="W" FontWeight="Bold" FontSize="16"/>
+                                        <TextBlock Grid.Column="2" x:Name="Losses" Text="L" FontWeight="Bold" FontSize="16"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </GroupStyle.HeaderTemplate>
+                        </GroupStyle>
+                    </ItemsControl.GroupStyle>
+                </ItemsControl>
+                <TextBlock Text="National League" Grid.Row="2" FontSize="24" FontWeight="Bold" Margin="0,12,0,0"/>
                 <ItemsControl Grid.Row="3" ItemsSource="{Binding Source={StaticResource NLViewSource}}"
-                          ItemTemplate="{StaticResource TeamSeasonResults}"/>
+                          ItemTemplate="{StaticResource TeamSeasonResults}">
+                    <ItemsControl.GroupStyle>
+                        <GroupStyle>
+                            <GroupStyle.HeaderTemplate>
+                                <DataTemplate>
+                                    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,8,0,2">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" x:Name="TeamName" Text="{Binding Division}" FontWeight="Bold" FontSize="16"/>
+                                        <TextBlock Grid.Column="1" x:Name="Wins" FontWeight="Bold" Text="W" FontSize="16"/>
+                                        <TextBlock Grid.Column="2" x:Name="Losses" FontWeight="Bold" Text="L" FontSize="16"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </GroupStyle.HeaderTemplate>
+                        </GroupStyle>
+                    </ItemsControl.GroupStyle>
+                </ItemsControl>
             </Grid>
         </ScrollViewer>
-        
+
     </Grid>
 </Page>
 
